@@ -72,9 +72,16 @@ public class MainActivity extends AppCompatActivity {
         taskList.add(itemText);
         mAdapter.notifyDataSetChanged();
     }
-    private void removeItem(String itemText) {
-        taskList.remove(itemText);
+    private void removeItem(int index) {
+        taskList.remove(index);
         mAdapter.notifyDataSetChanged() ;
     }
+
+    public void deleteTask(View view) {
+        int index = mTaskListView.indexOfChild((View) view.getParent());
+        Log.d("deleteTask", String.valueOf(index));
+        removeItem(index);
+    }
+
 
 }
